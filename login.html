@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-Quiz | Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container  loginCont" id="logincontainer">
+        <div class="login-form card" id="loginPost" justify-content-center align-items-center p-3>
+            <h2>WECLOME BACK!</h2>
+              <p>Login to start your quiz</p>
+            <form>
+                <label> <input type="email" id="loginEmail"  placeholder="Enter Your Email" required></label>
+                <label><br>
+                    <label>
+                        <input type="password" id="loginPassword"  placeholder="Enter Your Password" required>
+                    </label><br>
+                    <label>
+                        <button class="" type="button" onclick="login()">Start Quiz</button>
+                    </label><br>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment-with-locales.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+        <script src="app.js"></script>
+</body>
+
+</html>
