@@ -14,12 +14,14 @@ body {
 }
 
 /* GLASS CARDS */
-.login-form, .sign-up, .quiz-card {
+.login-form,
+.sign-up,
+.quiz-card {
     width: 400px;
     padding: 40px 30px;
     background: rgba(0, 0, 0, 0.55);
     backdrop-filter: blur(18px);
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
     color: #fff;
@@ -28,24 +30,26 @@ body {
 }
 
 /* INPUTS */
-.login-form input, .sign-up input {
+.login-form input,
+.sign-up input {
     width: 100%;
     padding: 14px;
     margin: 10px 0;
     border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     outline: none;
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
     color: #fff;
 }
 
-.login-form input:focus, .sign-up input:focus {
+.login-form input:focus,
+.sign-up input:focus {
     box-shadow: 0 0 10px rgba(0, 198, 255, 0.5);
 }
 
 /* BUTTONS */
-.login-form button, .sign-up button,
-.PreviousBtn, .NextBtn {
+.login-form button,
+.sign-up button {
     width: 220px;
     margin: 10px auto;
     padding: 12px 20px;
@@ -55,6 +59,19 @@ body {
     font-weight: bold;
     cursor: pointer;
     background: linear-gradient(135deg, #00c6ff, #0072ff);
+    transition: 0.3s;
+}
+
+.PreviousBtn,
+.NextBtn {
+    width: 120px;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
     transition: 0.3s;
 }
 
@@ -73,14 +90,14 @@ body {
     padding: 12px;
     margin: 10px 0;
     border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.15);
-    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
     cursor: pointer;
     transition: 0.3s;
 }
 
 .option-label:hover {
-    background: rgba(255,255,255,0.12);
+    background: rgba(255, 255, 255, 0.12);
     transform: scale(1.02);
 }
 
@@ -94,18 +111,59 @@ body {
     cursor: pointer;
     transition: 0.3s;
 }
-.quiz-container{ display: flex; justify-content: center; align-items: center; min-height: 85vh; }
-.quiz-card { width: 700px; padding: 30px; border-radius: 20px;  border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 10px 35px rgba(0,0,0,0.25); color: white; text-align: center; transition: 0.3s; transform: scale(1.05); }
+
+.quiz-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quiz-card {
+    width: 500px;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+    color: white;
+    text-align: center;
+    transition: 0.3s;
+    transform: scale(1.05);
+}
+
+.btngroup {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 500px;
+}
 
 .logout-btn:hover {
     background: #ff1f1f;
     transform: scale(1.05);
 }
 
-/* CENTER CONTAINERS */
-.loginCont, .quiz-container {
+.loginCont,
+.quiz-container {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+}
+
+.swal2-popup {
+    background: rgba(0, 0, 0, 0.55) !important;
+    backdrop-filter: blur(18px);
+    border-radius: 20px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff !important;
+}
+
+.swal2-confirm {
+    background: linear-gradient(135deg, #00c6ff, #0072ff) !important;
+    border-radius: 25px !important;
+}
+
+.swal2-cancel {
+    background: #ff3b3b !important;
+    border-radius: 25px !important;
 }

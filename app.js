@@ -15,13 +15,15 @@ function signup() {
         });
         return;
     }
-    if (password.length < 6) {
-        Swal.fire({
-            icon: "error",
-            title: "Short Password",
-            text: "Password must be at least 6 characters."
-        });
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&^#()[\]{}|\\/ \-+_.:;=,~`])[^\s]{8,}$/;
+    if (!emailPattern.test(email)) {
+        Swal.fire("Error", "Invalid email format", "error");
+        return;
+    }
 
+    if (!passwordPattern.test(password)) {
+        Swal.fire("Error", "Password must be 6+ chars with a number", "error");
         return;
     }
     var exist = false;
@@ -53,17 +55,13 @@ function signup() {
     window.location.href = "login.html";
 
 }
-
 function login() {
-
     var email = document.getElementById("loginEmail").value.trim();
     var password = document.getElementById("loginPassword").value.trim();
-
     var users = JSON.parse(localStorage.getItem("userdata"));
     if (!users) {
         users = [];
     }
-
     if (email === "" || password === "") {
         Swal.fire({
             icon: "error",
@@ -75,9 +73,7 @@ function login() {
     var userData = users.find(function (user) {
         return user.email === email && user.password === password;
     });
-
     if (userData) {
-
         localStorage.setItem("currentUser", JSON.stringify(userData));
 
         Swal.fire({
@@ -85,7 +81,7 @@ function login() {
             title: "Login Successful!",
             text: "Welcome back " + userData.name
         }).then(() => {
-            window.location.href = "quiz.html";
+            window.open("quiz.html", "quizcont", "width=800,height=600,left=320,bottom=100");
         });
 
     } else {
@@ -104,11 +100,11 @@ function logout() {
         showCancelButton: true,
         confirmButtonText: "Yes, logout",
         cancelButtonText: "No, stay logged in",
-       background: "#0f172a",
-    color: "#ffffff",
-    confirmButtonColor: "#ffcc00",
-    cancelButtonColor: "#ff3b3b",
-    showCancelButton: true
+        background: "#0f172a",
+        color: "#ffffff",
+        confirmButtonColor: "#ffcc00",
+        cancelButtonColor: "#ff3b3b",
+        showCancelButton: true
     }).then(() => {
         window.location.href = "login.html";
     });
@@ -213,7 +209,7 @@ function displayContainer() {
                     </div>
                 </div>
 
-                <div class="d-flex justify-content-between mt-1">
+                <div class="d-flex justify-content-between g-5 btngroup mb-5">
                     <button class="btn  PreviousBtn" onclick="previousQuiz()"> Previous</button>
                     <button class="btn NextBtn " id="nextBtn" onclick="nextQuiz()">Next </button>
                 </div>
@@ -261,16 +257,17 @@ function nextQuiz() {
                 text: "Sorry! " + currentUser.name + ", you are failed.",
                 html: "Your score is: " + score + "/" + QuizData.length + "<br>Percentage: " + percentage.toFixed(2) + "%",
                 icon: "error",
-                confirmButtonText: "Restart Quiz",
+                confirmButtonText: "Close Quiz",
                 background: "#0f172a",
                 color: "#ffffff",
 
-                confirmButtonColor: "#ff3b3",
-                confirmButtonText: "Continue",
+                confirmButtonColor: "#ff3b30",
+
             }).then(() => {
-                index = 0;
+                /*index = 0;
                 score = 0;
-                document.getElementById("displayCard").style.display = "block";
+                document.getElementById("displayCard").style.display = "block";*/
+                window.close();
                 displayContainer();
             });
         } else {
@@ -279,13 +276,10 @@ function nextQuiz() {
                 text: "Congratulations! " + currentUser.name + ", you are passed.",
                 html: "Your score is: " + score + "/" + QuizData.length + "<br>Percentage: " + percentage.toFixed(2) + "%",
                 icon: "success",
-                confirmButtonText: "Restart Quiz",
-                background: "#0f172a",   // dark navy background
+                confirmButtonText: "Close Quiz",
+                background: "#0f172a",
                 color: "#ffffff",
-
                 confirmButtonColor: "#00c6ff",
-                confirmButtonText: "Continue",
-
                 showClass: {
                     popup: "animate__animated animate__fadeInDown"
                 },
@@ -293,9 +287,10 @@ function nextQuiz() {
                     popup: "animate__animated animate__fadeOutUp"
                 },
             }).then(() => {
-                index = 0;
+                /*index = 0;
                 score = 0;
-                document.getElementById("displayCard").style.display = "block";
+                document.getElementById("displayCard").style.display = "block";*/
+                window.close();
                 displayContainer();
             });
         }
